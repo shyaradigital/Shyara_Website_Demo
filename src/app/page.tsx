@@ -8,7 +8,8 @@ import { ShyaraAdvantage } from "@/components/sections/home/ShyaraAdvantage"
 import { MetricsStrip } from "@/components/sections/home/MetricsStrip"
 import { Testimonials } from "@/components/sections/home/Testimonials"
 import { PortfolioPreview } from "@/components/sections/home/PortfolioPreview"
-import { CTASection } from "@/components/sections/home/CTASection"
+import { ContactCTA } from "@/components/sections/home/ContactCTA"
+import { BrandPromise } from "@/components/sections/home/BrandPromise"
 
 export default function HomePage() {
   return (
@@ -23,7 +24,8 @@ export default function HomePage() {
       <MetricsStrip />
       <Testimonials />
       <PortfolioPreview />
-      <CTASection />
+      <ContactCTA />
+      <BrandPromise />
     </>
   )
 }

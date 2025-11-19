@@ -1,100 +1,142 @@
+"use client"
+
 import Link from "next/link"
+import { motion } from "framer-motion"
+
+const currentYear = new Date().getFullYear()
+
+const footerLinks = {
+  services: [
+    { name: "Social Media Management", href: "/services#social-media" },
+    { name: "Web Development", href: "/services#web-dev" },
+    { name: "App Development", href: "/services#app-dev" },
+    { name: "Video Editing", href: "/services#video" },
+  ],
+  company: [
+    { name: "About Us", href: "/about" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Contact", href: "/contact" },
+  ],
+  legal: [
+    { name: "Terms & Conditions", href: "/terms" },
+    { name: "Privacy Policy", href: "/privacy" },
+  ],
+}
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
-
   return (
-    <footer className="border-t border-border/40 bg-card">
+    <footer className="border-t border-border/50 bg-card">
       <div className="container py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">
-              TODO: User will provide content
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              TODO: User will provide content
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4">
+          {/* Brand Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg font-semibold text-foreground">Shyara Digital</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Building powerful brands through creative digital solutions.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold">
-              TODO: User will provide content
+          {/* Services Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="space-y-4"
+          >
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Services
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link
-                  href="/services"
-                  className="hover:text-foreground transition-colors"
-                >
-                  TODO: User will provide content
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/portfolio"
-                  className="hover:text-foreground transition-colors"
-                >
-                  TODO: User will provide content
-                </Link>
-              </li>
+              {footerLinks.services.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="transition-colors hover:text-foreground hover:underline"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold">
-              TODO: User will provide content
+          {/* Company Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-4"
+          >
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Company
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link
-                  href="/faq"
-                  className="hover:text-foreground transition-colors"
-                >
-                  TODO: User will provide content
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-foreground transition-colors"
-                >
-                  TODO: User will provide content
-                </Link>
-              </li>
+              {footerLinks.company.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="transition-colors hover:text-foreground hover:underline"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold">
-              TODO: User will provide content
+          {/* Legal Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-4"
+          >
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Legal
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link
-                  href="/terms"
-                  className="hover:text-foreground transition-colors"
-                >
-                  TODO: User will provide content
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="hover:text-foreground transition-colors"
-                >
-                  TODO: User will provide content
-                </Link>
-              </li>
+              {footerLinks.legal.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="transition-colors hover:text-foreground hover:underline"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="mt-12 border-t border-border/40 pt-8 text-center text-sm text-muted-foreground">
+        {/* Copyright */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-12 border-t border-border/50 pt-8 text-center text-sm text-muted-foreground"
+        >
           <p>
-            © {currentYear} TODO: User will provide content. All rights
-            reserved.
+            © Shyara Digital {currentYear}. All rights reserved.{" "}
+            <Link
+              href="/terms"
+              className="transition-colors hover:text-foreground hover:underline"
+            >
+              Terms & Conditions
+            </Link>
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   )

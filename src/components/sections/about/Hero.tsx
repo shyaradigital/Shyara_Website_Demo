@@ -1,0 +1,36 @@
+"use client"
+
+import { motion } from "framer-motion"
+
+export function AboutHero() {
+  return (
+    <section className="relative overflow-hidden bg-background py-20 sm:py-24">
+      <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl"
+          >
+            About Shyara
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-6 text-lg leading-8 text-muted-foreground sm:text-xl"
+          >
+            A freelance-powered digital collective dedicated to building memorable,
+            high-performing brands.
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}

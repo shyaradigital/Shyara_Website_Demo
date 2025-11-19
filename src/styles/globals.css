@@ -4,29 +4,29 @@
 
 @layer base {
   :root {
-    --background: 245 20% 2%;
+    --background: 240 33% 4%;
     --foreground: 210 40% 98%;
-    --card: 245 20% 4%;
+    --card: 240 33% 5%;
     --card-foreground: 210 40% 98%;
-    --popover: 245 20% 4%;
+    --popover: 240 33% 5%;
     --popover-foreground: 210 40% 98%;
-    --primary: 270 91% 65%;
+    --primary: 252 83% 65%;
     --primary-foreground: 210 40% 98%;
     --secondary: 245 20% 10%;
     --secondary-foreground: 210 40% 98%;
     --muted: 245 20% 10%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 270 91% 65%;
+    --accent: 252 83% 75%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 245 20% 15%;
     --input: 245 20% 15%;
-    --ring: 270 91% 65%;
+    --ring: 252 83% 65%;
     --radius: 0.5rem;
     
     /* Portfolio component colors */
-    --color-primary: #a259f7;
+    --color-primary: #6A4DFF;
     --color-text-primary: #e7e7e7;
     --color-text-secondary: #a7a7a7;
   }
