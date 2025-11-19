@@ -1,4 +1,7 @@
 import type { Metadata } from "next"
+import { PortfolioHero } from "@/components/sections/portfolio/PortfolioHero"
+import { ServicePortfolioGrid } from "@/components/sections/portfolio/ServicePortfolioGrid"
+import { ViewMoreCTA } from "@/components/sections/portfolio/ViewMoreCTA"
 import { PortfolioPage } from "@/components/portfolio/PortfolioPage"
 
 export const metadata: Metadata = {
@@ -7,5 +10,14 @@ export const metadata: Metadata = {
 }
 
 export default function Portfolio() {
-  return <PortfolioPage />
+  return (
+    <>
+      <PortfolioHero />
+      <ServicePortfolioGrid />
+      <ViewMoreCTA />
+      <div id="portfolio-showcase">
+        <PortfolioPage />
+      </div>
+    </>
+  )
 }
