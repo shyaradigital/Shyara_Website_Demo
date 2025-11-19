@@ -1,5 +1,5 @@
-// Placeholder data structure for FAQs
-// TODO: User will provide content
+// FAQ data structure
+// TODO: User will provide actual content
 
 export interface FAQ {
   id: string
@@ -9,5 +9,34 @@ export interface FAQ {
 }
 
 export const faqs: FAQ[] = [
-  // TODO: User will provide content
+  {
+    id: "1",
+    question: "TODO: User will provide question",
+    answer: "TODO: User will provide answer. This is a placeholder that can be replaced with actual FAQ content later.",
+    category: "General",
+  },
+  {
+    id: "2",
+    question: "TODO: User will provide question",
+    answer: "TODO: User will provide answer. This is a placeholder that can be replaced with actual FAQ content later.",
+    category: "Services",
+  },
+  {
+    id: "3",
+    question: "TODO: User will provide question",
+    answer: "TODO: User will provide answer. This is a placeholder that can be replaced with actual FAQ content later.",
+    category: "Pricing",
+  },
+  {
+    id: "4",
+    question: "TODO: User will provide question",
+    answer: "TODO: User will provide answer. This is a placeholder that can be replaced with actual FAQ content later.",
+    category: "General",
+  },
+  {
+    id: "5",
+    question: "TODO: User will provide question",
+    answer: "TODO: User will provide answer. This is a placeholder that can be replaced with actual FAQ content later.",
+    category: "Support",
+  },
 ]

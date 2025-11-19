@@ -3,8 +3,12 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { services } from "@/data/services"
 
 export function ServicesPreview() {
+  // Show only first 3 services as preview
+  const previewServices = services.slice(0, 3)
+
   return (
     <section className="bg-muted/50 py-24 sm:py-32">
       <div className="container">
@@ -24,9 +28,9 @@ export function ServicesPreview() {
         </motion.div>
 
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {[1, 2, 3].map((item, index) => (
+          {previewServices.map((service, index) => (
             <motion.div
-              key={item}
+              key={service.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -34,10 +38,10 @@ export function ServicesPreview() {
               className="rounded-lg border border-border bg-card p-8"
             >
               <h3 className="text-xl font-semibold text-foreground">
-                TODO: User will provide content
+                {service.title}
               </h3>
               <p className="mt-4 text-muted-foreground">
-                TODO: User will provide content
+                {service.description}
               </p>
             </motion.div>
           ))}

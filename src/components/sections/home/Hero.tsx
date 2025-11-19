@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 export function Hero() {
   return (
@@ -20,9 +21,12 @@ export function Hero() {
           <p className="mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
             TODO: User will provide content
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Button asChild size="lg">
-              <Link href="/contact">TODO: User will provide content</Link>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6">
+            <Button asChild size="lg" className="group">
+              <Link href="/contact">
+                TODO: User will provide content
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link href="/services">TODO: User will provide content</Link>
