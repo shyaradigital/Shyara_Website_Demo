@@ -17,9 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-
-// TODO: EmailJS integration will be added when keys are provided
-// import emailjs from "@emailjs/browser"
+import emailService from "@/lib/emailjs"
 
 const budgetOptions = [
   { value: "under-5k", label: "Under $5,000" },
@@ -48,6 +46,7 @@ export function ContactForm() {
       name: "",
       email: "",
       company: "",
+      phone: "",
       budget: undefined,
       message: "",
     },
@@ -70,34 +69,23 @@ export function ContactForm() {
         message: sanitizeInput(data.message),
       }
 
-      // TODO: EmailJS integration
-      // When EmailJS keys are provided, uncomment and configure:
-      /*
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      // Send email using EmailJS
+      const result = await emailService.sendContactForm({
+        name: sanitizedData.name,
+        email: sanitizedData.email,
+        phone: data.phone ? sanitizeInput(data.phone) : "",
+        message: sanitizedData.message,
+        company: sanitizedData.company,
+        budget: sanitizedData.budget,
+      })
 
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS configuration is missing")
+      if (result.success) {
+        setSubmitStatus("success")
+        reset()
+      } else {
+        setSubmitStatus("error")
+        setErrorMessage(result.message)
       }
-
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: sanitizedData.name,
-          from_email: sanitizedData.email,
-          company: sanitizedData.company,
-          budget: sanitizedData.budget || "Not specified",
-          message: sanitizedData.message,
-        },
-        publicKey
-      )
-      */
-
-      // Placeholder success handling
-      setSubmitStatus("success")
-      reset()
       
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -165,6 +153,20 @@ export function ContactForm() {
             />
             {errors.company && (
               <p className="text-sm text-destructive">{errors.company.message}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="phone">Phone</Label>
+            <Input
+              id="phone"
+              type="tel"
+              {...register("phone")}
+              placeholder="+91 9584661610"
+              disabled={isSubmitting}
+            />
+            {errors.phone && (
+              <p className="text-sm text-destructive">{errors.phone.message}</p>
             )}
           </div>
 

@@ -8,6 +8,11 @@ export const contactFormSchema = z.object({
     .regex(/^[a-zA-Z\s]+$/, "Name can only contain letters and spaces"),
   email: z.string().email("Invalid email address"),
   company: z.string().max(200, "Company name must be less than 200 characters").optional().or(z.literal("")),
+  phone: z
+    .string()
+    .regex(/^[+]?[0-9\s\-()]{10,}$/, "Please enter a valid phone number")
+    .optional()
+    .or(z.literal("")),
   budget: z
     .enum(["under-5k", "5k-10k", "10k-25k", "25k-50k", "50k-plus", "not-sure"], {
       errorMap: () => ({ message: "Please select a valid budget range" }),

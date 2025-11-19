@@ -24,6 +24,11 @@
     --input: 245 20% 15%;
     --ring: 270 91% 65%;
     --radius: 0.5rem;
+    
+    /* Portfolio component colors */
+    --color-primary: #a259f7;
+    --color-text-primary: #e7e7e7;
+    --color-text-secondary: #a7a7a7;
   }
 }
 
@@ -40,5 +45,55 @@
 @layer utilities {
   .container {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Portfolio modal scrollbar styling */
+.portfolio-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.portfolio-modal::-webkit-scrollbar-track {
+  background: #1e1e28;
+  border-radius: 4px;
+}
+
+.portfolio-modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #a259f7 0%, #7f42a7 100%);
+  border-radius: 4px;
+}
+
+.portfolio-modal::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b366ff 0%, #8f52b7 100%);
+}
+
+/* Portfolio grid responsive styles */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    padding: 0 !important;
+  }
+  
+  .portfolio-item {
+    min-height: 280px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-item {
+    min-height: 250px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 }
